@@ -8,14 +8,14 @@ public class Paddle : MonoBehaviour
 
     void Update()
     {
-        // Move the paddle up when the 'W' key or up arrow is pressed
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        // Move the paddle up when the 'W' key is pressed
+        if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector2.up * speed * Time.deltaTime);
         }
 
-        // Move the paddle down when the 'S' key or down arrow is pressed
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        // Move the paddle down when the 'S' key is pressed
+        if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(Vector2.down * speed * Time.deltaTime);
         }
