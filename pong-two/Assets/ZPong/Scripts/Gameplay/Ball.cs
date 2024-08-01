@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SocialPlatforms.Impl;
 namespace ZPong
 {
+
     public class Ball : MonoBehaviour
     {
         public float speed = 5f;
-        public Color slowColor = new Color(0.5f, 0.7f, 1f); // Light blue
-        public Color mediumColor = new Color(0f, 0.8f, 0.8f); // Teal
-        public Color fastColor = new Color(1f, 0.5f, 0.7f); // Pink
 
         private float screenTop = 527;
         private float screenBottom = -527;
@@ -20,15 +18,13 @@ namespace ZPong
         private bool ballActive;
 
         protected RectTransform rectTransform;
-        private AudioSource bounceSFX;
-        private SpriteRenderer spriteRenderer; // Add a SpriteRenderer component
 
-        private float speedIncreaseRate = 0.1f; // Adjust the rate of speed increase as needed
+        private AudioSource bounceSFX;
+
 
         private void Start()
         {
             rectTransform = GetComponent<RectTransform>();
-            spriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component
 
             if (PlayerPrefs.HasKey("BallSpeed"))
             {
@@ -79,40 +75,18 @@ namespace ZPong
         {
             if (ballActive)
             {
-                // Gradually increase the speed over time
-                speed += speedIncreaseRate * Time.deltaTime;
+
 
                 Vector2 newPosition = rectTransform.anchoredPosition + (direction * speed * Time.deltaTime);
+
                 rectTransform.anchoredPosition = newPosition;
 
-                // Update the ball's color based on speed
-                UpdateBallColor();
-                
+
                 if (rectTransform.anchoredPosition.y >= screenTop || rectTransform.anchoredPosition.y <= screenBottom)
                 {
                     direction.y *= -1f;
                     PlayBounceSound();
                 }
-            }
-        }
-
-        private void UpdateBallColor()
-        {
-            // Calculate speed based on velocity magnitude
-            float currentSpeed = direction.magnitude * speed;
-
-            // Lerp between colors based on speed
-            if (currentSpeed <= 5f) // Slow speed
-            {
-                spriteRenderer.color = Color.Lerp(spriteRenderer.color, slowColor, Time.deltaTime * 2f);
-            }
-            else if (currentSpeed <= 10f) // Medium speed
-            {
-                spriteRenderer.color = Color.Lerp(spriteRenderer.color, mediumColor, Time.deltaTime * 2f);
-            }
-            else // Fast speed
-            {
-                spriteRenderer.color = Color.Lerp(spriteRenderer.color, fastColor, Time.deltaTime * 2f);
             }
         }
 
@@ -184,5 +158,6 @@ namespace ZPong
         {
             ballActive = false;
         }
+
     }
 }
