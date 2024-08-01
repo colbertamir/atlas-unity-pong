@@ -8,7 +8,7 @@ Hello! My name is Amir Colbert and I am an aspiring AR/VR Software engineer! I l
 
 ### Description
 
-This repository has two renditions of a classic, pong. The first rendition was building pong from scratch. Really understanding what tweening means in Unity and how to use it played a vital role in creating this game the firt time. The second rendition (as featured in the screenshot above) was taking what we learned from creating the first version and improving upon it. In this version I added a pop of color. I also added a bloom effect to the screen to make everything glow, and finished it off with a line rendered from the ball!
+This repository has two renditions of a classic, pong. The first rendition was building pong from scratch. Really understanding what tweening means in Unity and how to use it played a vital role in creating this game the first time. The second rendition (as featured in the screenshot above) was taking what we learned from creating the first version and improving upon it. In this version I added a pop of color. I also added a bloom effect to the screen to make everything glow, and finished it off with a line rendered from the ball!
 
 ### Links
 
